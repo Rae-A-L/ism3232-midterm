@@ -22,6 +22,9 @@ def calculate_job_total(copy_price: float, copies: int, student_org: bool = Fals
     discount = get_volume_discount(copies, student_org)
 
     discounted_cost = cost * (1 - discount)
+
+    if discounted_cost < 40:
+        discounted_cost += 15 
     return discounted_cost
 
 def requires_proof(total: float) -> bool:
@@ -42,8 +45,9 @@ def total_invoiced(jobs: list) -> float:
     """Returns the sum of the job totals for every job in the list."""
     total = 0.0
     for job in jobs:
-        total += calculate_job_total (job["copy_price"],job["copies"],job["student_org"]) 
-        return total 
+        total += calculate_job_total(job["copy_price"],job["copies"],job["student_org"]
+        ) 
+    return total 
     
 
 def largest_job(jobs: list) -> str:
