@@ -276,3 +276,86 @@ branch 'main' set up to track 'origin/main'.
 (.venv) DESKTOP-FJGPNR6% code .
 
 ## 2. The Virtual Enviroment
+Output: /home/raeanthonylew/ism3232/ism3232-midterm/.venv/bin/python3
+
+It shows that it is running from the .venv instead of the systems Python. 
+
+## 3. The project structure 
+.
+├── README.md
+├── __pycache__
+│   └── business_rules.cpython-314.pyc
+├── business_rules.py
+├── commands.md
+├── main.py
+├── requirements.txt
+└── tests
+    ├── __init__.py
+    ├── __pycache__
+    └── test_business_rules.py
+
+__pycahce__ doesn't show on my GitHub because it has files that Git does not track.
+
+## 4. Every functions and test 
+
+business_rules.py
+1:def calculate_print_cost(copy_price: float, copies: int) -> float:
+6:def get_volume_discount(copies: int, student_org: bool = False) -> float:
+19:def calculate_job_total(
+34:def requires_proof(total: float) -> bool:
+42:def needs_overnight_run(copies: int, total: float) -> bool:
+50:def total_invoiced(jobs: list) -> float:
+60:def largest_job(jobs: list) -> str:
+74:def format_job_line(title: str, total: float, proof: bool, overnight_run: bool) -> str:
+
+commands.md
+121:hint: Using 'master' as the name for the initial branch. This default branch name
+126:hint:   git config --global init.defaultBranch <name>
+133:hint: Disable this message with "git config set advice.defaultBranchName false"
+205:hint: Using 'master' as the name for the initial branch. This default branch name
+210:hint:   git config --global init.defaultBranch <name>
+217:hint: Disable this message with "git config set advice.defaultBranchName false"
+
+tests/test_business_rules.py
+13:def test_calculate_print_cost():
+17:def test_discount_below_200():
+21:def test_discount_200():
+25:def test_discount_999():
+29:def test_discount_1000():
+33:def test_student_org_discount():
+37:def test_student_org_1000():
+41:def test_setup_fee_add():
+45:def test_setup_fee_exact():
+49:def test_proof_above():
+53:def test_proof_above_limit():
+57:def test_overnight_500_copies():
+61:def test_overnight_copies_over():
+65:def test_overnight_400():
+69:def test_overnight_over():
+73:def test_total_invoice_adds_every_job():
+81:def test_total_invoice_empty_list():
+85:def test_largest_job_goes_first():
+93:def test_largest_job_empty_list_is_empty_string():
+97:def test_job_line_yes_no():
+
+Business_rules.py defines 8 functions, and tests/test_business_rules.py defines 20 tests.
+
+## 5. Which files print
+
+business_rules.py
+tests/test_business_rules.py
+main.py
+
+All of the python files contain print, and business_rules.py is on the list because it is in the functions and definitions. 
+
+## 6. The commit history
+
+git log --oneline
+c493bb6 (HEAD -> main, origin/main) Part 5: Listing the evidence and proof that I built the project (Step 1)
+1c3f485 Part 4: Test functions and limits at least 20 (complete)
+61fecb1 Part 4: Test functions and limits (3/4 check)
+d4ced98 Part 3: Put the functions in main.py to generate the job report
+bb1dc29 Part 2: Added functions for discounts, totals, proof checks, and overnight runs
+5f12481 Pre-setup for Brightline Print Shop
+
+There were 6 commits at that point. 

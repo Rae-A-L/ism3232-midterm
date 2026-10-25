@@ -51,7 +51,7 @@ def test_proof_above():
 
 
 def test_proof_above_limit():
-    assert requires_proof(301.00) is True
+    assert requires_proof(300.00) is True
 
 
 def test_overnight_500_copies():
