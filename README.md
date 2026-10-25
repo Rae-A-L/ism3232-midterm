@@ -21,8 +21,11 @@ This projects helps the Brightline Print Shop price each print job and invoices 
 ## How to Run:
 
 python3-m venv .venv 
+
 source .venv/bin/activate
+
 pip install -r requirements.txt
+
 python3 main.py
 
 ## How to Test:
