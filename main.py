@@ -1,4 +1,13 @@
-from business_rules import (calculate_print_cost, get_volume_discount, calculate_job_total, requires_proof, needs_overnight_run, total_invoiced, largest_job, format_job_line)
+from business_rules import (
+    calculate_print_cost,
+    get_volume_discount,
+    calculate_job_total,
+    requires_proof,
+    needs_overnight_run,
+    total_invoiced,
+    largest_job,
+    format_job_line,
+)
 
 jobs = [
     {"title": "Flyers", "copy_price": 0.25, "copies": 100, "student_org": False},
@@ -7,30 +16,27 @@ jobs = [
     {"title": "Programs", "copy_price": 0.80, "copies": 500, "student_org": True},
     {"title": "Catalogs", "copy_price": 0.40, "copies": 2000, "student_org": False},
     {"title": "Banners", "copy_price": 3.00, "copies": 120, "student_org": False},
-    {"title": "Tickets", "copy_price": .10, "copies": 501, "student_org": False},
+    {"title": "Tickets", "copy_price": 0.10, "copies": 501, "student_org": False},
     {"title": "Booklets", "copy_price": 1.75, "copies": 300, "student_org": True},
 ]
 
-print ("Brightline Print Shop - Job Report")
+print("Brightline Print Shop - Job Report")
 
 count = 0
 proof_count = 0
 overnight_count = 0
 student_org_count = 0
 
-for job in jobs: 
-    total = calculate_job_total(
-        job["copy_price"], job["copies"], job["student_org"]
-    )
+for job in jobs:
+    total = calculate_job_total(job["copy_price"], job["copies"], job["student_org"])
     proof = requires_proof(total)
     overnight = needs_overnight_run(job["copies"], total)
     count += 1
     if proof:
         proof_count += 1
     if overnight:
-        overnight_count += 1 
-    print(format_job_line(job["title"], total, proof, overnight)
-          )
+        overnight_count += 1
+    print(format_job_line(job["title"], total, proof, overnight))
 
 total = total_invoiced(jobs)
 
@@ -40,4 +46,3 @@ print(f"Average job total: ${total / count:.2f}")
 print(f"Largest job total: {largest_job(jobs)}")
 print(f"Proofs required: {proof_count}")
 print(f"Overnight runs: {overnight_count}")
-
